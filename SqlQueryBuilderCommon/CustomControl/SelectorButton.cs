@@ -18,6 +18,8 @@ namespace SqlQueryBuilderCommon.CustomControl
 
         public Image Icon { get; set; }
 
+        public override string Text { get; set; }
+
         public SelectorButton()
         {
             InitializeComponent();
@@ -26,6 +28,8 @@ namespace SqlQueryBuilderCommon.CustomControl
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            label1.Text = Text;
+
             panel1.BackColor = DefaultColor;
             pictureBox1.Image = Icon;
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
