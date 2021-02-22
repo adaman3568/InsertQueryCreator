@@ -11,7 +11,7 @@ namespace SqlQueryBuilder
 {
     public partial class FrmInsertQueryBuilder : Form, ITableSelectForm
     {
-        private IEnumerable<TableDataPair> _tableItems;
+        public IEnumerable<TableDataPair> DataPairs { get; private set; }
         public IEnumerable<TableDataPair> SelectedDataPairs { get; private set; }
         private Action<ShowType> _childFormShowEvent;
 
@@ -90,8 +90,8 @@ namespace SqlQueryBuilder
         #region 通常メソッド
         private void SetData(IDataImport importer)
         {
-            _tableItems = importer.GetData();
-            var tableDataPairs = _tableItems as TableDataPair[] ?? _tableItems.ToArray();
+            DataPairs = importer.GetData();
+            var tableDataPairs = DataPairs as TableDataPair[] ?? DataPairs.ToArray();
             
             if (!tableDataPairs.Any())
                 return;
@@ -109,7 +109,7 @@ namespace SqlQueryBuilder
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectdTable = listBox1.SelectedItem.ToString();
-            var data = _tableItems.First(t => t.TableName == selectdTable);
+            var data = DataPairs.First(t => t.TableName == selectdTable);
             dataGridView1.DataSource = data.DataTable;
             setSelectedItem();
         }
@@ -117,7 +117,7 @@ namespace SqlQueryBuilder
         private void setSelectedItem()
         {
             var selectedItems = getSelectedItemList().ToArray();
-            var res = _tableItems.ToList().Where(item => selectedItems.Contains(item.TableName));
+            var res = DataPairs.ToList().Where(item => selectedItems.Contains(item.TableName));
             SelectedDataPairs = new List<TableDataPair>(res);
 
         }

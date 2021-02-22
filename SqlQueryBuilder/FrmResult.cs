@@ -23,8 +23,15 @@ namespace SqlQueryBuilder
         public void Show(ShowType show)
         {
             _showType = show;
+
+
+
+
+
             this.Show();
         }
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
