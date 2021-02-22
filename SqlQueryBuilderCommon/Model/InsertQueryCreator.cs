@@ -50,10 +50,8 @@ namespace SqlQueryBuilderCommon.Model
 
         public string GetQuery()
         {
-            var bodies = getBodies().ToArray();
-            return $@"{getHeader()}
-                        {Environment.NewLine}values
-                        {Environment.NewLine}{string.Join($@"{Environment.NewLine},", bodies)};";
+            var bodies = string.Join($@"{Environment.NewLine},", getBodies().ToArray());
+            return string.Format("{1}{0}values{2}",Environment.NewLine,getHeader(), bodies);
         }
     }
 }

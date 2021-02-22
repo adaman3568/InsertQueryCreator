@@ -45,7 +45,7 @@ namespace SqlQueryBuilder
             {
                 var str = new SqlQueryBuilderCommon.Model.InsertQueryCreator(data.TableName, data.DataTable)
                     .GetQuery();
-                _showStr.Append($@"{str}{Environment.NewLine}");
+                _showStr.Append(string.Format("{0};{1}{1}",str,Environment.NewLine));
             }
 
             textBox1.Text = _showStr.ToString();
