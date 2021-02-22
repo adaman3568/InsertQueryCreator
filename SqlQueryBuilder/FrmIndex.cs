@@ -20,20 +20,32 @@ namespace SqlQueryBuilder
         private Color _defaultBtnColor => Color.Navy;
 
         private Form _frmInsertQueryBuilder;
+        private Form _frmResult;
         #endregion
 
         public FrmIndex()
         {
             InitializeComponent();
 
+            _frmInsertQueryBuilder = new FrmInsertQueryBuilder(() =>
+            {
+                _frmInsertQueryBuilder.Hide();
+                _frmResult.Show();
+            }) {TopLevel = false};
 
-
-
-            _frmInsertQueryBuilder = new FrmInsertQueryBuilder();
-            _frmInsertQueryBuilder.TopLevel = false;
             formPanel.Controls.Add(_frmInsertQueryBuilder);
             _frmInsertQueryBuilder.Dock = DockStyle.Fill;
             _frmInsertQueryBuilder.Show();
+
+            _frmResult = new FrmResult(() =>
+            {
+                _frmResult.Hide();
+                _frmInsertQueryBuilder.Show();
+            })
+            {
+                TopLevel = false, Dock = DockStyle.Fill
+            };
+            formPanel.Controls.Add(_frmResult);
 
         }
 

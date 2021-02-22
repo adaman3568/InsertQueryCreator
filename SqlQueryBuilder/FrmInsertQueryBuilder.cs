@@ -10,18 +10,18 @@ namespace SqlQueryBuilder
     public partial class FrmInsertQueryBuilder : Form
     {
         private IEnumerable<TableDataPair> _tableItems;
+        private Action _childFormShowEvent;
 
-        public FrmInsertQueryBuilder()
+        public FrmInsertQueryBuilder(Action childFormShowEvent)
         {
             InitializeComponent();
+            _childFormShowEvent = childFormShowEvent;
         }
         
         #region イベントハンドラ
         private void button5_Click(object sender, EventArgs e)
         {
-            var form = new FrmResult(ShowEvent);
-            form.Show();
-            this.Hide();
+            _childFormShowEvent();
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -108,6 +108,11 @@ namespace SqlQueryBuilder
             var selectdTable = listBox1.SelectedItem.ToString();
             var data = _tableItems.First(t => t.TableName == selectdTable);
             dataGridView1.DataSource = data.DataTable;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _childFormShowEvent();
         }
     }
 }
