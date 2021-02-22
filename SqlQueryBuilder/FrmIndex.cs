@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SqlQueryBuilderCommon.CustomControl;
+using SqlQueryBuilderCommon.Forms;
 
 namespace SqlQueryBuilder
 {
@@ -20,17 +21,18 @@ namespace SqlQueryBuilder
         private Color _defaultBtnColor => Color.Navy;
 
         private Form _frmInsertQueryBuilder;
-        private Form _frmResult;
+        private FrmResult _frmResult;
         #endregion
 
         public FrmIndex()
         {
             InitializeComponent();
 
-            _frmInsertQueryBuilder = new FrmInsertQueryBuilder(() =>
+            _frmInsertQueryBuilder = new FrmInsertQueryBuilder((type) =>
             {
                 _frmInsertQueryBuilder.Hide();
-                _frmResult.Show();
+                _frmResult.Show(type);
+
             }) {TopLevel = false};
 
             formPanel.Controls.Add(_frmInsertQueryBuilder);
@@ -41,7 +43,7 @@ namespace SqlQueryBuilder
             {
                 _frmResult.Hide();
                 _frmInsertQueryBuilder.Show();
-            })
+            },(ITableSelectForm)_frmInsertQueryBuilder)
             {
                 TopLevel = false, Dock = DockStyle.Fill
             };

@@ -2,17 +2,20 @@
 using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using SqlQueryBuilderCommon.Forms;
 using SqlQueryBuilderCommon.Model;
 using SqlQueryBuilderCommon.Importer;
 
 namespace SqlQueryBuilder
 {
-    public partial class FrmInsertQueryBuilder : Form
+    public partial class FrmInsertQueryBuilder : Form, ITableSelectForm
     {
         private IEnumerable<TableDataPair> _tableItems;
-        private Action _childFormShowEvent;
+        public IEnumerable<TableDataPair> SelectedDataPairs { get; private set; }
+        private Action<ShowType> _childFormShowEvent;
 
-        public FrmInsertQueryBuilder(Action childFormShowEvent)
+        public FrmInsertQueryBuilder(Action<ShowType> childFormShowEvent)
         {
             InitializeComponent();
             _childFormShowEvent = childFormShowEvent;
@@ -21,7 +24,7 @@ namespace SqlQueryBuilder
         #region イベントハンドラ
         private void button5_Click(object sender, EventArgs e)
         {
-            _childFormShowEvent();
+            _childFormShowEvent(ShowType.Limited);
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -108,11 +111,29 @@ namespace SqlQueryBuilder
             var selectdTable = listBox1.SelectedItem.ToString();
             var data = _tableItems.First(t => t.TableName == selectdTable);
             dataGridView1.DataSource = data.DataTable;
+            setSelectedItem();
+        }
+
+        private void setSelectedItem()
+        {
+            var selectedItems = getSelectedItemList().ToArray();
+            var res = _tableItems.ToList().Where(item => selectedItems.Contains(item.TableName));
+            SelectedDataPairs = new List<TableDataPair>(res);
+
+        }
+
+        private IEnumerable<string> getSelectedItemList()
+        {
+            var itemEnum = listBox1.SelectedItems.GetEnumerator();
+            while (itemEnum.MoveNext())
+            {
+                yield return (string)itemEnum.Current;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            _childFormShowEvent();
+            _childFormShowEvent(ShowType.All);
         }
     }
 }
