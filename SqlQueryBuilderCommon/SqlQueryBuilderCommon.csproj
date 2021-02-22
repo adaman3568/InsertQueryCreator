@@ -78,7 +78,7 @@
     <Compile Include="Importer\DirectoriesDataImporter.cs" />
     <Compile Include="Importer\ExcelDataImporter.cs" />
     <Compile Include="Importer\IDataImport.cs" />
-    <Compile Include="Model\InsertQuery.cs" />
+    <Compile Include="Model\InsertQueryCreator.cs" />
     <Compile Include="Model\TableDataPair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
