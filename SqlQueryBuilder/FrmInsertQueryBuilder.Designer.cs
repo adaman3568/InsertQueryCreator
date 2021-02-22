@@ -52,7 +52,7 @@ namespace SqlQueryBuilder
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
@@ -65,9 +65,12 @@ namespace SqlQueryBuilder
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.LemonChiffon;
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button5.ForeColor = System.Drawing.Color.Transparent;
             this.button5.Location = new System.Drawing.Point(1370, 6);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(146, 48);
@@ -78,9 +81,12 @@ namespace SqlQueryBuilder
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.LemonChiffon;
+            this.button4.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button4.ForeColor = System.Drawing.Color.Transparent;
             this.button4.Location = new System.Drawing.Point(12, 6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(126, 48);
@@ -91,9 +97,12 @@ namespace SqlQueryBuilder
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.LemonChiffon;
+            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button3.ForeColor = System.Drawing.Color.Transparent;
             this.button3.Location = new System.Drawing.Point(1522, 6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(146, 48);
@@ -103,7 +112,7 @@ namespace SqlQueryBuilder
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.BackColor = System.Drawing.Color.Navy;
             this.panel2.Controls.Add(this.btn_fromExcel);
             this.panel2.Controls.Add(this.btn_fromDirectory);
             this.panel2.Controls.Add(this.btn_fromCsv);
@@ -116,9 +125,12 @@ namespace SqlQueryBuilder
             // btn_fromExcel
             // 
             this.btn_fromExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_fromExcel.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btn_fromExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_fromExcel.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btn_fromExcel.FlatAppearance.BorderSize = 0;
             this.btn_fromExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fromExcel.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btn_fromExcel.ForeColor = System.Drawing.Color.Transparent;
             this.btn_fromExcel.Location = new System.Drawing.Point(1278, 12);
             this.btn_fromExcel.Name = "btn_fromExcel";
             this.btn_fromExcel.Size = new System.Drawing.Size(126, 48);
@@ -130,9 +142,12 @@ namespace SqlQueryBuilder
             // btn_fromDirectory
             // 
             this.btn_fromDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_fromDirectory.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btn_fromDirectory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_fromDirectory.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btn_fromDirectory.FlatAppearance.BorderSize = 0;
             this.btn_fromDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fromDirectory.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btn_fromDirectory.ForeColor = System.Drawing.Color.Transparent;
             this.btn_fromDirectory.Location = new System.Drawing.Point(1542, 12);
             this.btn_fromDirectory.Name = "btn_fromDirectory";
             this.btn_fromDirectory.Size = new System.Drawing.Size(126, 48);
@@ -144,9 +159,12 @@ namespace SqlQueryBuilder
             // btn_fromCsv
             // 
             this.btn_fromCsv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_fromCsv.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btn_fromCsv.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_fromCsv.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btn_fromCsv.FlatAppearance.BorderSize = 0;
             this.btn_fromCsv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fromCsv.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btn_fromCsv.ForeColor = System.Drawing.Color.Transparent;
             this.btn_fromCsv.Location = new System.Drawing.Point(1410, 12);
             this.btn_fromCsv.Name = "btn_fromCsv";
             this.btn_fromCsv.Size = new System.Drawing.Size(126, 48);
@@ -196,6 +214,7 @@ namespace SqlQueryBuilder
             // listBox1
             // 
             this.listBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
