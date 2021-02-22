@@ -24,6 +24,11 @@ namespace SqlQueryBuilder
         #region イベントハンドラ
         private void button5_Click(object sender, EventArgs e)
         {
+            if (DataPairs == null || !getSelectedItemList().Any())
+            {
+                MessageBox.Show("データソースが選択されていません。");
+                return;
+            }
             _childFormShowEvent(ShowType.Limited);
         }
         
@@ -133,6 +138,11 @@ namespace SqlQueryBuilder
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (DataPairs == null)
+            {
+                MessageBox.Show("データソースが選択されていません。");
+                return;
+            }
             _childFormShowEvent(ShowType.All);
         }
     }
