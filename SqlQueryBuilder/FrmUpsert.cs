@@ -18,6 +18,21 @@ namespace SqlQueryBuilder
         private DataSet _dataSet;
         private IEnumerable<string> _tableList;
 
+        private IEnumerable<string> _hideColumnNames => new List<string>()
+        {
+            "テーブルID",
+            "テーブル名",
+            "カラムID",
+            "型ID",
+        };
+
+        private IEnumerable<string> _readOnlyColumnNames => new List<string>()
+        {
+            "カラム名",
+            "型許容サイズ",
+            "型名"
+        };
+
         public FrmUpsert()
         {
             InitializeComponent();
@@ -71,12 +86,45 @@ namespace SqlQueryBuilder
             foreach (var groupedItem in groupedList)
             {
                 var table = groupedItem.CopyToDataTable();
+                table.Columns.Add(new DataColumn("取込", typeof(bool)){DefaultValue = true});
+                table.Columns["取込"].SetOrdinal(0);
+
+                table.Columns.Add(new DataColumn("デフォルト値", typeof(object)){DefaultValue = null});
                 table.TableName = groupedItem.First()["テーブル名"].ToString();
                 _dataSet.Tables.Add(table);
                 tList.Add(table.TableName);
             }
 
             _tableList = tList;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var tableName = listBox1.SelectedItem.ToString();
+            var targetTable = _dataSet.Tables[tableName];
+            if (targetTable != null)
+            {
+                dataGridView1.DataSource = targetTable;
+            }
+        }
+
+        private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
+        {
+            var dgv = (DataGridView) sender;
+
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                if (_hideColumnNames.Contains(col.Name))
+                {
+                    col.Visible = false;
+                }
+
+                if (_readOnlyColumnNames.Contains(col.Name))
+                {
+                    col.ReadOnly = true;
+                }
+            }
+
         }
     }
 }
