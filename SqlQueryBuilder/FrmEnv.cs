@@ -18,7 +18,6 @@ namespace SqlQueryBuilder
     public partial class FrmEnv : Form
     {
 
-        private string _envFileName => "dbSetting.xml";
         public FrmEnv()
         {
             InitializeComponent();
@@ -68,15 +67,15 @@ namespace SqlQueryBuilder
         {
             var instance = new DbConnectionString(txt_DBName.Text, txt_serverName.Text, txt_UserName.Text,
                 txt_Password.Text);
-            var xmlHelper = new XmlHelper<DbConnectionString>(Pathes.GetEnvPath(_envFileName));
+            var xmlHelper = new XmlHelper<DbConnectionString>(Pathes.GetEnvPath(EnvPath.EnvFileName));
             xmlHelper.Save(instance);
         }
 
         private void FrmEnv_Load(object sender, EventArgs e)
         {
-            if (Pathes.ExistsFile(_envFileName))
+            if (Pathes.ExistsFile(EnvPath.EnvFileName))
             {
-                var ins = new XmlHelper<DbConnectionString>(Pathes.GetEnvPath(_envFileName)).Read();
+                var ins = new XmlHelper<DbConnectionString>(Pathes.GetEnvPath(EnvPath.EnvFileName)).Read();
                 txt_DBName.Text = ins.InitialCatalog;
                 txt_serverName.Text = ins.DataSource;
                 txt_UserName.Text = ins.UserName;

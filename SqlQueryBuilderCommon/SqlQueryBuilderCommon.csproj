@@ -83,6 +83,8 @@
     <Compile Include="Model\InsertQueryCreator.cs" />
     <Compile Include="Model\TableDataPair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlCon\SqlConSingleton.cs" />
+    <Compile Include="Static\EnvPath.cs" />
     <Compile Include="Static\Pathes.cs" />
   </ItemGroup>
   <ItemGroup>
