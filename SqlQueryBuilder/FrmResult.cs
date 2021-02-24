@@ -5,55 +5,27 @@ using System.Text;
 using System.Windows.Forms;
 using SqlQueryBuilderCommon.Forms;
 using SqlQueryBuilderCommon.Model;
+using SqlQueryBuilderCommon.ResultTextCreator;
 
 namespace SqlQueryBuilder
 {
     public partial class FrmResult : Form
     {
         private Action _parentFormShowEvent;
-        private ITableSelectForm _parentForm;
-        private ShowType _showType;
+        private IResultTextCreator _resultTextCreator;
 
-        private StringBuilder _showStr;
-
-        public FrmResult(Action parentFormShowEvent, ITableSelectForm parentForm)
+        public FrmResult(Action parentFormShowEvent, IResultTextCreator resultTextCreator)
         {
             InitializeComponent();
             _parentFormShowEvent = parentFormShowEvent;
-            _parentForm = parentForm;
+            _resultTextCreator = resultTextCreator;
         }
 
-        public void Show(ShowType show)
+        public new void Show()
         {
-            _showStr = new StringBuilder();
-            _showType = show;
-
-            IEnumerable<TableDataPair> targetData;
-            switch (show)
-            {
-                case ShowType.All:
-                    targetData = _parentForm.DataPairs;
-                    break;
-                case ShowType.Limited:
-                    targetData = _parentForm.SelectedDataPairs;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(show), show, null);
-            }
-
-            foreach (var data in targetData)
-            {
-                var str = new SqlQueryBuilderCommon.Model.InsertQueryCreator(data.TableName, data.DataTable)
-                    .GetQuery();
-                _showStr.Append(string.Format("{0};{1}{1}",str,Environment.NewLine));
-            }
-
-            textBox1.Text = _showStr.ToString();
-
+            textBox1.Text = _resultTextCreator.ToString();
             this.Show();
         }
-
-
 
         private void button4_Click(object sender, EventArgs e)
         {
