@@ -105,6 +105,7 @@ namespace SqlQueryBuilder
             this.dataGridView1.Size = new System.Drawing.Size(1186, 676);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // FrmUpsert
             // 

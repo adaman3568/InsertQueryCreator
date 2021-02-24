@@ -39,6 +39,9 @@ namespace SqlQueryBuilder
             SetData();
 
             listBox1.DataSource = _tableList;
+
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
+            dataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.White;
         }
 
         private void SetData()
@@ -123,8 +126,27 @@ namespace SqlQueryBuilder
                 {
                     col.ReadOnly = true;
                 }
+
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dataGridView1.Rows[e.RowIndex];
+            var isImport = bool.Parse(row.Cells["取込"].Value.ToString());
+            var defaultValue = row.Cells["デフォルト値"].Value;
+            if (!isImport && (defaultValue == null || string.IsNullOrWhiteSpace(defaultValue.ToString())))
+            {
+                row.DefaultCellStyle.BackColor = Color.Gray;
+                row.DefaultCellStyle.ForeColor = Color.Black;
+            }
+            else
+            {
+                row.DefaultCellStyle.BackColor = default;
+                row.DefaultCellStyle.ForeColor = Color.Black;
+            }
         }
     }
 }
