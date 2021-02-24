@@ -7,6 +7,4 @@
 bin/
 obj/
 
-exe/*.exe
-exe/*.dll
-exe/*.pdb
+exe/
