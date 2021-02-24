@@ -46,6 +46,7 @@ namespace SqlQueryBuilder
             this.txt_UserName = new System.Windows.Forms.TextBox();
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_save = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@ namespace SqlQueryBuilder
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.Controls.Add(this.btn_save);
             this.panel1.Controls.Add(this.lbl_conResult);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.btn_conTest);
@@ -251,6 +253,22 @@ namespace SqlQueryBuilder
             this.panel2.Size = new System.Drawing.Size(477, 195);
             this.panel2.TabIndex = 14;
             // 
+            // btn_save
+            // 
+            this.btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_save.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_save.FlatAppearance.BorderSize = 0;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btn_save.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_save.Location = new System.Drawing.Point(753, 6);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(126, 48);
+            this.btn_save.TabIndex = 5;
+            this.btn_save.Text = "設定保存";
+            this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmEnv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -261,6 +279,7 @@ namespace SqlQueryBuilder
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEnv";
             this.Text = "FrmEnv";
+            this.Load += new System.EventHandler(this.FrmEnv_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -288,5 +307,6 @@ namespace SqlQueryBuilder
         private System.Windows.Forms.TextBox txt_UserName;
         private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btn_save;
     }
 }
