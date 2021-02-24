@@ -22,6 +22,9 @@ namespace SqlQueryBuilder
 
         private Form _frmInsertQueryBuilder;
         private FrmResult _frmResult;
+        private FrmEnv _frmEnv;
+        private IEnumerable<Form> _forms;
+
         #endregion
 
         public FrmIndex()
@@ -49,6 +52,19 @@ namespace SqlQueryBuilder
             };
             formPanel.Controls.Add(_frmResult);
 
+            _frmEnv = new FrmEnv()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            formPanel.Controls.Add(_frmEnv);
+
+            _forms = new List<Form>()
+            {
+                _frmInsertQueryBuilder,
+                _frmResult,
+                _frmEnv
+            };
         }
 
         private void FrmIndex_Load(object sender, EventArgs e)
@@ -87,5 +103,17 @@ namespace SqlQueryBuilder
 
 
         #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _forms.ToList().ForEach(f => f.Hide());
+            _frmEnv.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _forms.ToList().ForEach(f => f.Hide());
+            _frmInsertQueryBuilder.Show();
+        }
     }
 }
