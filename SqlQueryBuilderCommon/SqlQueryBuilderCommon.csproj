@@ -100,6 +100,7 @@
     <Compile Include="StoredCreator\Insert\InsertStoredCreator.cs" />
     <Compile Include="StoredCreator\IParamCreatorCollection.cs" />
     <Compile Include="StoredCreator\ParamCreator.cs" />
+    <Compile Include="StoredCreator\Update\UpdateStoredCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

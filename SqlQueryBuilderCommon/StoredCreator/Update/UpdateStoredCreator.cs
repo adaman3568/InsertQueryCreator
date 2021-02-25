@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using SqlQueryBuilderCommon.StoredCreator.Insert;
 
-namespace SqlQueryBuilderCommon.StoredCreator.Insert
+namespace SqlQueryBuilderCommon.StoredCreator.Update
 {
-
-    public class InsertStoredCreator : IStoredCreator
+    public class UpdateStoredCreator : IStoredCreator
     {
         public string TableName { get; }
         public IParamCreatorCollection Collection { get; }
+        private UpdateParamCreatorCollection _collection => (UpdateParamCreatorCollection) Collection;
 
-        private InsertParamCreatorCollection _collection => (InsertParamCreatorCollection) Collection;
-
-        public InsertStoredCreator(string tableName, InsertParamCreatorCollection collection)
+        public UpdateStoredCreator(string tableName, UpdateParamCreatorCollection collection)
         {
             TableName = tableName;
             Collection = collection;
         }
 
-        public InsertStoredCreator(string tableName) : this(tableName, new InsertParamCreatorCollection())
+        public UpdateStoredCreator(string tableName):this(tableName,new UpdateParamCreatorCollection())
         {
-
+            
         }
 
         public void AddRow(DataRow row)
@@ -37,13 +36,13 @@ namespace SqlQueryBuilderCommon.StoredCreator.Insert
         public override string ToString()
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.Append($@"create procedure usp_insert_{TableName}");
+            stringBuilder.Append($@"create procedure usp_update_{TableName}");
             stringBuilder.Append(Environment.NewLine);
             stringBuilder.Append($@"({Collection.GetHeaderParamStr()})");
             stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append($@"insert into {TableName}({_collection.GetColumnStr()})");
+            stringBuilder.Append($@"update {TableName} set");
             stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append($@"values ({_collection.GetValueParamStr()})");
+            stringBuilder.Append(_collection.GetUpdateParamStr());
 
             return stringBuilder.ToString();
         }
