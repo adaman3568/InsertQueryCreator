@@ -85,7 +85,11 @@
     <Compile Include="Model\TableDataPair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultTextCreator\InsertResultTextCreator.cs" />
+    <Compile Include="ResultTextCreator\InsertStoredResultTextCreator.cs" />
     <Compile Include="ResultTextCreator\IResultTextCreator.cs" />
+    <Compile Include="ResultTextCreator\IUpsertForm.cs" />
+    <Compile Include="ResultTextCreator\IUpsertTextCreator.cs" />
+    <Compile Include="ResultTextCreator\UpdateStoredResultTextCreator.cs" />
     <Compile Include="ResultTextCreator\UpsertResultTextCreator.cs" />
     <Compile Include="SqlCon\SqlConSingleton.cs" />
     <Compile Include="Static\EnvPath.cs" />
