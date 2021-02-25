@@ -53,6 +53,15 @@ namespace SqlQueryBuilderCommon.StoredCreator.ParamCreator
         }
 
         /// <summary>
+        /// ヘッダーのParamに含まれるか？
+        /// </summary>
+        /// <returns></returns>
+        public bool IsHeader()
+        {
+            return _isImport;
+        }
+
+        /// <summary>
         /// デフォルト値のImportだけ設定されている場合。
         /// </summary>
         /// <returns></returns>
