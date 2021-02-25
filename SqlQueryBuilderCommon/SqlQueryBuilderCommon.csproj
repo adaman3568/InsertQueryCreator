@@ -89,6 +89,9 @@
     <Compile Include="SqlCon\SqlConSingleton.cs" />
     <Compile Include="Static\EnvPath.cs" />
     <Compile Include="Static\Pathes.cs" />
+    <Compile Include="StoredCreator\InsertParamCreatorCollection.cs" />
+    <Compile Include="StoredCreator\InsertStoredCreator.cs" />
+    <Compile Include="StoredCreator\ParamCreator\InsertParamCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
