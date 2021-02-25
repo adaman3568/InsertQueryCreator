@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using SqlQueryBuilderCommon.Extentions;
 using SqlQueryBuilderCommon.StoredCreator;
+using SqlQueryBuilderCommon.StoredCreator.Insert;
 
 namespace SqlQueryBuilderTest
 {

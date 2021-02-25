@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using SqlQueryBuilderCommon.Extentions;
 using SqlQueryBuilderCommon.StoredCreator;
+using SqlQueryBuilderCommon.StoredCreator.Insert;
 
 namespace SqlQueryBuilderCommon.ResultTextCreator.Insert
 {

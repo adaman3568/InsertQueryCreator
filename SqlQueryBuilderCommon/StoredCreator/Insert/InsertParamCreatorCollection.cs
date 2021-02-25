@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using SqlQueryBuilderCommon.Static;
 
-namespace SqlQueryBuilderCommon.StoredCreator
+namespace SqlQueryBuilderCommon.StoredCreator.Insert
 {
 
     public class InsertParamCreatorCollection : IParamCreatorCollection

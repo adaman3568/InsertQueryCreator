@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace SqlQueryBuilderCommon.StoredCreator
+namespace SqlQueryBuilderCommon.StoredCreator.Insert
 {
     public class InsertStoredCreator
     {

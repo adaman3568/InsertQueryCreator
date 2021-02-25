@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using DocumentFormat.OpenXml.Spreadsheet;
-using SqlQueryBuilderCommon.StoredCreator;
 
-namespace SqlQueryBuilderCommon.ResultTextCreator
+namespace SqlQueryBuilderCommon.StoredCreator.Update
 {
     public class UpdateParamCreatorCollection : IParamCreatorCollection
     {

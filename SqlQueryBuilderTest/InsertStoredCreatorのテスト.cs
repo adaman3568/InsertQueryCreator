@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using SqlQueryBuilderCommon.Extentions;
 using SqlQueryBuilderCommon.StoredCreator;
+using SqlQueryBuilderCommon.StoredCreator.Insert;
 
 namespace SqlQueryBuilderTest
 {
