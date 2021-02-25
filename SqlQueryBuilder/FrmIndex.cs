@@ -8,8 +8,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using SqlQueryBuilderCommon.CustomControl;
 using SqlQueryBuilderCommon.Forms;
+using SqlQueryBuilderCommon.ResultTextCreator;
 
 namespace SqlQueryBuilder
 {
@@ -24,7 +26,10 @@ namespace SqlQueryBuilder
         private FrmResult _frmResult;
         private FrmEnv _frmEnv;
         private FrmUpsert _frmUpsert;
+        private FrmResult _frmUpsertResult;
         private IEnumerable<Form> _forms;
+
+        private InsertResultTextCreator _insertResultTextCreator;
 
         #endregion
 
@@ -32,40 +37,13 @@ namespace SqlQueryBuilder
         {
             InitializeComponent();
 
-            _frmInsertQueryBuilder = new FrmInsertQueryBuilder((type) =>
-            {
-                _frmInsertQueryBuilder.Hide();
-                _frmResult.Show(type);
+            InitializeInsertGroup();
+            InitializeFrmResult();
+            InitializeFrmEnv();
+            InitializeFrmUpsert();
+            InitializeToolStrip();
+            InitializeFrmUpsertResult();
 
-            }) {TopLevel = false};
-
-            formPanel.Controls.Add(_frmInsertQueryBuilder);
-            _frmInsertQueryBuilder.Dock = DockStyle.Fill;
-            _frmInsertQueryBuilder.Show();
-
-            _frmResult = new FrmResult(() =>
-            {
-                _frmResult.Hide();
-                _frmInsertQueryBuilder.Show();
-            },(ITableSelectForm)_frmInsertQueryBuilder)
-            {
-                TopLevel = false, Dock = DockStyle.Fill
-            };
-            formPanel.Controls.Add(_frmResult);
-
-            _frmEnv = new FrmEnv()
-            {
-                TopLevel = false,
-                Dock = DockStyle.Fill
-            };
-            formPanel.Controls.Add(_frmEnv);
-
-            _frmUpsert = new FrmUpsert()
-            {
-                TopLevel = false,
-                Dock = DockStyle.Fill
-            };
-            formPanel.Controls.Add(_frmUpsert);
 
             _forms = new List<Form>()
             {
@@ -74,14 +52,8 @@ namespace SqlQueryBuilder
                 _frmEnv,
                 _frmUpsert
             };
-
-
         }
 
-        private void FrmIndex_Load(object sender, EventArgs e)
-        {
-            InitializeToolStrip();
-        }
 
         #region 初期化
 
@@ -90,6 +62,81 @@ namespace SqlQueryBuilder
             toolStripStatusLabel1.Text =
                 System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly()
                     .Location).ProductVersion;
+        }
+
+        private void InitializeInsertGroup()
+        {
+            _frmInsertQueryBuilder = new FrmInsertQueryBuilder((type) =>
+                {
+                    _frmInsertQueryBuilder.Hide();
+                    _insertResultTextCreator.SetShowType(type);
+                    _frmResult.Show();
+
+                })
+                { TopLevel = false };
+            _insertResultTextCreator = new InsertResultTextCreator((ITableSelectForm)_frmInsertQueryBuilder);
+
+            formPanel.Controls.Add(_frmInsertQueryBuilder);
+            _frmInsertQueryBuilder.Dock = DockStyle.Fill;
+            _frmInsertQueryBuilder.Show();
+        }
+
+        private void InitializeFrmResult()
+        {
+            _frmResult = new FrmResult(() =>
+            {
+                _frmResult.Hide();
+                _frmInsertQueryBuilder.Show();
+            }, _insertResultTextCreator)
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            formPanel.Controls.Add(_frmResult);
+        }
+
+        private void InitializeFrmEnv()
+        {
+            _frmEnv = new FrmEnv()
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            formPanel.Controls.Add(_frmEnv);
+        }
+
+        private void InitializeFrmUpsert()
+        {
+            Action showInsertResult = () =>
+            {
+                var r = (UpsertResultTextCreator) _frmUpsertResult.ResultTextCreator;
+                r.SetUpsertType(UpsertType.Insert);
+            };
+
+            Action showUpdateResult = () =>
+            {
+                var r = (UpsertResultTextCreator)_frmUpsertResult.ResultTextCreator;
+                r.SetUpsertType(UpsertType.Update);
+            };
+
+            _frmUpsert = new FrmUpsert(showInsertResult,showUpdateResult)
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            formPanel.Controls.Add(_frmUpsert);
+        }
+
+        private void InitializeFrmUpsertResult()
+        {
+            _frmUpsertResult = new FrmResult(() =>
+            {
+                _frmUpsert.Show();
+            },new UpsertResultTextCreator(_frmUpsert));
+            _frmUpsertResult.TopLevel = false;
+            _frmUpsertResult.Dock = DockStyle.Fill;
+
+            formPanel.Container.Add(_frmUpsertResult);
         }
 
         #endregion
@@ -105,15 +152,6 @@ namespace SqlQueryBuilder
         {
 
         }
-
-        #endregion
-
-        #region 通常メソッド
-
-
-
-
-        #endregion
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -132,5 +170,16 @@ namespace SqlQueryBuilder
             _forms.ToList().ForEach(f => f.Hide());
             _frmUpsert.Show();
         }
+
+        #endregion
+
+        #region 通常メソッド
+
+
+
+
+        #endregion
+
+
     }
 }
