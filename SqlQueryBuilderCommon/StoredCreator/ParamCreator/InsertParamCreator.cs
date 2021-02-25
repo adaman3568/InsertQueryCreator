@@ -49,7 +49,7 @@ namespace SqlQueryBuilderCommon.StoredCreator.ParamCreator
         /// <returns></returns>
         public bool IsImport()
         {
-            return _isImport || _defaultValue != null;
+            return _isImport || HasDefaultValue;
         }
 
         /// <summary>
