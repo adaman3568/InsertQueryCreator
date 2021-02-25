@@ -6,7 +6,8 @@ using SqlQueryBuilderCommon.Static;
 
 namespace SqlQueryBuilderCommon.StoredCreator
 {
-    public class InsertParamCreatorCollection
+
+    public class InsertParamCreatorCollection : IParamCreatorCollection
     {
         public IEnumerable<ParamCreator> Creators { get; private set; }
 

@@ -96,6 +96,7 @@
     <Compile Include="Static\Pathes.cs" />
     <Compile Include="StoredCreator\InsertParamCreatorCollection.cs" />
     <Compile Include="StoredCreator\InsertStoredCreator.cs" />
+    <Compile Include="StoredCreator\IParamCreatorCollection.cs" />
     <Compile Include="StoredCreator\ParamCreator.cs" />
     <Compile Include="StoredCreator\UpdateParamCreatorCollection.cs" />
   </ItemGroup>
