@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
-using SqlQueryBuilderCommon.StoredCreator.ParamCreator;
+using SqlQueryBuilderCommon.StoredCreator;
+
 namespace SqlQueryBuilderTest
 {
     [TestClass]
@@ -20,7 +21,7 @@ namespace SqlQueryBuilderTest
             dt.Rows.Add(new object[] { true, "車両名", "varchar", "200", "subaru" });
             dt.Rows.Add(new object[] { false, "車両名", "varchar", "200", "subaru" });
 
-            var creator = new InsertParamCreator(dt.Rows[0]);
+            var creator = new ParamCreator(dt.Rows[0]);
             creator.ColumnName.Is("車両名");
             creator.HasDefaultValue.IsFalse();
             creator.ParamName.Is("@車両名");
@@ -29,10 +30,10 @@ namespace SqlQueryBuilderTest
             creator.IsImport().IsTrue();
             creator.IsOnlyDefaultValue().IsFalse();
 
-            var creator2 = new InsertParamCreator(dt.Rows[1]);
+            var creator2 = new ParamCreator(dt.Rows[1]);
             creator2.GetHeaderParam().Is("@車両名 varchar(200) = 'subaru'");
 
-            var creator3 = new InsertParamCreator(dt.Rows[2]);
+            var creator3 = new ParamCreator(dt.Rows[2]);
             creator3.GetValueParam().Is("'subaru'");
         }
     }

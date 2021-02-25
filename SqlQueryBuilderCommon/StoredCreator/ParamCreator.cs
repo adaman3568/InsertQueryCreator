@@ -1,8 +1,8 @@
 ﻿using System.Data;
 
-namespace SqlQueryBuilderCommon.StoredCreator.ParamCreator
+namespace SqlQueryBuilderCommon.StoredCreator
 {
-    public class InsertParamCreator
+    public class ParamCreator
     {
 
         #region プライベートメンバ
@@ -34,7 +34,7 @@ namespace SqlQueryBuilderCommon.StoredCreator.ParamCreator
 
         #endregion
 
-        public InsertParamCreator(DataRow row)
+        public ParamCreator(DataRow row)
         {
             _isImport = bool.Parse(row["取込"].ToString());
             _columnName = row["カラム名"].ToString();
