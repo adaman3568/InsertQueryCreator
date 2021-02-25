@@ -12,18 +12,18 @@ namespace SqlQueryBuilder
     public partial class FrmResult : Form
     {
         private Action _parentFormShowEvent;
-        private IResultTextCreator _resultTextCreator;
+        public IResultTextCreator ResultTextCreator;
 
         public FrmResult(Action parentFormShowEvent, IResultTextCreator resultTextCreator)
         {
             InitializeComponent();
             _parentFormShowEvent = parentFormShowEvent;
-            _resultTextCreator = resultTextCreator;
+            ResultTextCreator = resultTextCreator;
         }
 
         public new void Show()
         {
-            textBox1.Text = _resultTextCreator.ToString();
+            textBox1.Text = ResultTextCreator.ToString();
             this.Show();
         }
 
