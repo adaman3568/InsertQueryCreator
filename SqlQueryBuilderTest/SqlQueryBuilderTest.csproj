@@ -55,6 +55,7 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InsertParamCreatorのテスト.cs" />
+    <Compile Include="InsertParamCreatorCollectionのテスト.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -71,6 +71,7 @@
     <Compile Include="CustomControl\SelectorButton.Designer.cs">
       <DependentUpon>SelectorButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extentions\DataRowCollectionExtensions.cs" />
     <Compile Include="Extentions\Excel\ExcelRow.cs" />
     <Compile Include="Forms\ITableSelectForm.cs" />
     <Compile Include="Forms\ShowType.cs" />
