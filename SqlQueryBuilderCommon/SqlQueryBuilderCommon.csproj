@@ -89,6 +89,7 @@
     <Compile Include="ResultTextCreator\IResultTextCreator.cs" />
     <Compile Include="ResultTextCreator\IUpsertForm.cs" />
     <Compile Include="ResultTextCreator\IUpsertTextCreator.cs" />
+    <Compile Include="ResultTextCreator\UpdateParamCreatorCollection.cs" />
     <Compile Include="ResultTextCreator\UpdateStoredResultTextCreator.cs" />
     <Compile Include="ResultTextCreator\UpsertResultTextCreator.cs" />
     <Compile Include="SqlCon\SqlConSingleton.cs" />
