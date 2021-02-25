@@ -30,8 +30,9 @@ namespace SqlQueryBuilder
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Update = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Insert = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -41,13 +42,30 @@ namespace SqlQueryBuilder
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.Controls.Add(this.btn_Update);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btn_Insert);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 676);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1378, 66);
             this.panel1.TabIndex = 1;
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Update.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_Update.FlatAppearance.BorderSize = 0;
+            this.btn_Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Update.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btn_Update.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_Update.Location = new System.Drawing.Point(1108, 6);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(126, 48);
+            this.btn_Update.TabIndex = 4;
+            this.btn_Update.Text = "Updateクエリ\r\nの生成";
+            this.btn_Update.UseVisualStyleBackColor = false;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // button4
             // 
@@ -63,20 +81,21 @@ namespace SqlQueryBuilder
             this.button4.Text = "閉じる";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn_Insert
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(1240, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 48);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "クエリの生成";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_Insert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Insert.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_Insert.FlatAppearance.BorderSize = 0;
+            this.btn_Insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Insert.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btn_Insert.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_Insert.Location = new System.Drawing.Point(1240, 6);
+            this.btn_Insert.Name = "btn_Insert";
+            this.btn_Insert.Size = new System.Drawing.Size(126, 48);
+            this.btn_Insert.TabIndex = 1;
+            this.btn_Insert.Text = "Insertクエリ\r\nの生成";
+            this.btn_Insert.UseVisualStyleBackColor = false;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // listBox1
             // 
@@ -128,8 +147,9 @@ namespace SqlQueryBuilder
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Insert;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_Update;
     }
 }

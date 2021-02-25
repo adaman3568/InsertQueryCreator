@@ -9,14 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SqlQueryBuilderCommon.ResultTextCreator;
 using SqlQueryBuilderCommon.SqlCon;
 
 namespace SqlQueryBuilder
 {
-    public partial class FrmUpsert : Form
+    public partial class FrmUpsert : Form,IUpsertForm
     {
         private DataSet _dataSet;
+        public DataTable SelectedDataTable { get; private set; }
         private IEnumerable<string> _tableList;
+        private Action _showInsertResult;
+        private Action _showUpdateResult;
+
+
 
         private IEnumerable<string> _hideColumnNames => new List<string>()
         {
@@ -33,9 +39,12 @@ namespace SqlQueryBuilder
             "型名"
         };
 
-        public FrmUpsert()
+        public FrmUpsert(Action showInsertResult,Action showUpdateResult)
         {
             InitializeComponent();
+            _showInsertResult = showUpdateResult;
+            _showUpdateResult = showUpdateResult;
+
             SetData();
 
             listBox1.DataSource = _tableList;
@@ -108,6 +117,7 @@ namespace SqlQueryBuilder
             if (targetTable != null)
             {
                 dataGridView1.DataSource = targetTable;
+                SelectedDataTable = targetTable;
             }
         }
 
@@ -147,6 +157,16 @@ namespace SqlQueryBuilder
                 row.DefaultCellStyle.BackColor = default;
                 row.DefaultCellStyle.ForeColor = Color.Black;
             }
+        }
+
+        private void btn_Insert_Click(object sender, EventArgs e)
+        {
+            _showInsertResult();
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            _showUpdateResult();
         }
     }
 }
