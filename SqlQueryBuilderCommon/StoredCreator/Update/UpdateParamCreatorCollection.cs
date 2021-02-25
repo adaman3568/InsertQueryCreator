@@ -11,16 +11,14 @@ namespace SqlQueryBuilderCommon.ResultTextCreator
     public class UpdateParamCreatorCollection : IParamCreatorCollection
     {
         public IEnumerable<ParamCreator> Creators { get; private set; }
-        private string _tableName;
         private string _separator => $@"{Environment.NewLine},";
         
-        public UpdateParamCreatorCollection(string tableName,IEnumerable<ParamCreator> paramCreators)
+        public UpdateParamCreatorCollection(IEnumerable<ParamCreator> paramCreators)
         {
-            _tableName = tableName;
             Creators = paramCreators;
         }
 
-        public UpdateParamCreatorCollection(string tableName) : this(tableName, new List<ParamCreator>())
+        public UpdateParamCreatorCollection() : this(new List<ParamCreator>())
         {
             
         }

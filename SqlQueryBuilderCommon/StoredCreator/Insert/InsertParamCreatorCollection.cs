@@ -13,9 +13,13 @@ namespace SqlQueryBuilderCommon.StoredCreator
 
         private string _separator = $@"{Environment.NewLine},";
 
-        public InsertParamCreatorCollection()
+        public InsertParamCreatorCollection():this(new List<ParamCreator>())
         {
-            Creators = new List<ParamCreator>();
+        }
+
+        public InsertParamCreatorCollection(IEnumerable<ParamCreator> creators)
+        {
+            Creators = creators;
         }
 
         public string GetHeaderParamStr()
