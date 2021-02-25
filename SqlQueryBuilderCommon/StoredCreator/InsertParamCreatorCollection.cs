@@ -8,7 +8,7 @@ namespace SqlQueryBuilderCommon.StoredCreator
 {
     public class InsertParamCreatorCollection
     {
-        private IEnumerable<ParamCreator> Creators;
+        public IEnumerable<ParamCreator> Creators { get; private set; }
 
         private string _separator = $@"{Environment.NewLine},";
 
