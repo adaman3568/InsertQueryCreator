@@ -1,14 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Net.Sockets;
+﻿using System.Data;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SqlQueryBuilderCommon.Extentions;
-using SqlQueryBuilderCommon.StoredCreator;
 using SqlQueryBuilderCommon.StoredCreator.Insert;
 
-namespace SqlQueryBuilderTest
+namespace SqlQueryBuilderTest.StoredCreator.Insert
 {
     [TestClass]
     public class InsertParamCreatorCollectionのテスト

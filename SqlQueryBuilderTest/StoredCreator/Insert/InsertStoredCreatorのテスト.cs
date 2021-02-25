@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data;
+﻿using System.Data;
 using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SqlQueryBuilderCommon.Extentions;
-using SqlQueryBuilderCommon.StoredCreator;
 using SqlQueryBuilderCommon.StoredCreator.Insert;
 
-namespace SqlQueryBuilderTest
+namespace SqlQueryBuilderTest.StoredCreator.Insert
 {
     [TestClass]
     public class InsertStoredCreatorのテスト

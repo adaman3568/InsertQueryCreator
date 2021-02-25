@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data;
+﻿using System.Data;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SqlQueryBuilderCommon.StoredCreator;
 
-namespace SqlQueryBuilderTest
+namespace SqlQueryBuilderTest.StoredCreator.Insert
 {
     [TestClass]
-    public class InsertParamCreatorのテスト
+    public class ParamCreatorのテスト
     {
         [TestMethod]
         public void TestMethod1()
