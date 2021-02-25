@@ -5,14 +5,15 @@ using System.Text;
 
 namespace SqlQueryBuilderCommon.StoredCreator.Insert
 {
-    public class InsertStoredCreator
+
+    public class InsertStoredCreator : IStoredCreator
     {
-        private string _tableName;
-        private InsertParamCreatorCollection _collection;
+        public string TableName { get; }
+        public InsertParamCreatorCollection Collection { get; }
         public InsertStoredCreator(string tableName, InsertParamCreatorCollection collection)
         {
-            _tableName = tableName;
-            _collection = collection;
+            TableName = tableName;
+            Collection = collection;
         }
 
         public InsertStoredCreator(string tableName) : this(tableName, new InsertParamCreatorCollection())
@@ -22,24 +23,24 @@ namespace SqlQueryBuilderCommon.StoredCreator.Insert
 
         public void AddRow(DataRow row)
         {
-            _collection.AddRow(row);
+            Collection.AddRow(row);
         }
 
         public void AddRow(IEnumerable<DataRow> rows)
         {
-            _collection.AddRow(rows);
+            Collection.AddRow(rows);
         }
 
         public override string ToString()
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.Append($@"create procedure usp_insert_{_tableName}");
+            stringBuilder.Append($@"create procedure usp_insert_{TableName}");
             stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append($@"({_collection.GetHeaderParamStr()})");
+            stringBuilder.Append($@"({Collection.GetHeaderParamStr()})");
             stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append($@"insert into {_tableName}({_collection.GetColumnStr()})");
+            stringBuilder.Append($@"insert into {TableName}({Collection.GetColumnStr()})");
             stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append($@"values ({_collection.GetValueParamStr()})");
+            stringBuilder.Append($@"values ({Collection.GetValueParamStr()})");
 
             return stringBuilder.ToString();
         }

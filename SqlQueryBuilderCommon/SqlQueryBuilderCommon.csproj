@@ -89,6 +89,7 @@
     <Compile Include="ResultTextCreator\IResultTextCreator.cs" />
     <Compile Include="ResultTextCreator\IUpsertForm.cs" />
     <Compile Include="ResultTextCreator\IUpsertTextCreator.cs" />
+    <Compile Include="StoredCreator\IStoredCreator.cs" />
     <Compile Include="StoredCreator\Update\UpdateParamCreatorCollection.cs" />
     <Compile Include="ResultTextCreator\Update\UpdateStoredResultTextCreator.cs" />
     <Compile Include="ResultTextCreator\Update\UpsertResultTextCreator.cs" />
