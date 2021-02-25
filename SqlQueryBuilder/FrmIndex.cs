@@ -12,6 +12,8 @@ using System.Windows.Forms.VisualStyles;
 using SqlQueryBuilderCommon.CustomControl;
 using SqlQueryBuilderCommon.Forms;
 using SqlQueryBuilderCommon.ResultTextCreator;
+using SqlQueryBuilderCommon.ResultTextCreator.Insert;
+using SqlQueryBuilderCommon.ResultTextCreator.Update;
 
 namespace SqlQueryBuilder
 {

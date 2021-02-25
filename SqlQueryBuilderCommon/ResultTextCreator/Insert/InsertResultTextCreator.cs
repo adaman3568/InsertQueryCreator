@@ -4,7 +4,7 @@ using System.Text;
 using SqlQueryBuilderCommon.Forms;
 using SqlQueryBuilderCommon.Model;
 
-namespace SqlQueryBuilderCommon.ResultTextCreator
+namespace SqlQueryBuilderCommon.ResultTextCreator.Insert
 {
     public class InsertResultTextCreator : IResultTextCreator
     {

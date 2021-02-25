@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace SqlQueryBuilderCommon.ResultTextCreator
+namespace SqlQueryBuilderCommon.ResultTextCreator.Update
 {
     public class UpdateStoredResultTextCreator : IUpsertTextCreator
     {

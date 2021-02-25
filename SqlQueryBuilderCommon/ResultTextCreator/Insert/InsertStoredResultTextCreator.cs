@@ -2,7 +2,7 @@
 using SqlQueryBuilderCommon.Extentions;
 using SqlQueryBuilderCommon.StoredCreator;
 
-namespace SqlQueryBuilderCommon.ResultTextCreator
+namespace SqlQueryBuilderCommon.ResultTextCreator.Insert
 {
     public class InsertStoredResultTextCreator : IUpsertTextCreator
     {
