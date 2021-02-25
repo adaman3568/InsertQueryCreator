@@ -42,7 +42,7 @@ namespace SqlQueryBuilder
         public FrmUpsert(Action showInsertResult,Action showUpdateResult)
         {
             InitializeComponent();
-            _showInsertResult = showUpdateResult;
+            _showInsertResult = showInsertResult;
             _showUpdateResult = showUpdateResult;
 
             SetData();
@@ -167,6 +167,11 @@ namespace SqlQueryBuilder
         private void btn_Update_Click(object sender, EventArgs e)
         {
             _showUpdateResult();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

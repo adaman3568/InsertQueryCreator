@@ -111,12 +111,18 @@ namespace SqlQueryBuilder
             {
                 var r = (UpsertResultTextCreator) _frmUpsertResult.ResultTextCreator;
                 r.SetUpsertType(UpsertType.Insert);
+                _frmUpsert.Hide();
+                _frmUpsertResult.Show();
+
+
             };
 
             Action showUpdateResult = () =>
             {
                 var r = (UpsertResultTextCreator)_frmUpsertResult.ResultTextCreator;
                 r.SetUpsertType(UpsertType.Update);
+                _frmUpsert.Hide();
+                _frmUpsertResult.Show();
             };
 
             _frmUpsert = new FrmUpsert(showInsertResult,showUpdateResult)
@@ -136,7 +142,7 @@ namespace SqlQueryBuilder
             _frmUpsertResult.TopLevel = false;
             _frmUpsertResult.Dock = DockStyle.Fill;
 
-            formPanel.Container.Add(_frmUpsertResult);
+            formPanel.Controls.Add(_frmUpsertResult);
         }
 
         #endregion

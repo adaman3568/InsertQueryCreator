@@ -23,8 +23,8 @@ namespace SqlQueryBuilder
 
         public new void Show()
         {
-            textBox1.Text = ResultTextCreator.ToString();
-            this.Show();
+            textBox1.Text = ResultTextCreator.toString();
+            base.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

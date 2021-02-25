@@ -80,6 +80,7 @@ namespace SqlQueryBuilder
             this.button4.TabIndex = 3;
             this.button4.Text = "閉じる";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btn_Insert
             // 
