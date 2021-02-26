@@ -1,4 +1,6 @@
 ﻿using System.Data;
+using SqlQueryBuilderCommon.Extentions;
+using SqlQueryBuilderCommon.StoredCreator.Update;
 
 namespace SqlQueryBuilderCommon.ResultTextCreator.Update
 {
@@ -12,7 +14,10 @@ namespace SqlQueryBuilderCommon.ResultTextCreator.Update
 
         public string toString()
         {
-            return "";
+            var collection = new UpdateParamCreatorCollection();
+            collection.AddRow(_dt.Rows.ToEnumerable());
+            var creator = new UpdateStoredCreator(_dt.TableName, collection);
+            return creator.ToString();
         }
     }
 }

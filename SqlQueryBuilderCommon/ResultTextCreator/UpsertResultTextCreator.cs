@@ -1,7 +1,8 @@
 ﻿using System;
 using SqlQueryBuilderCommon.ResultTextCreator.Insert;
+using SqlQueryBuilderCommon.ResultTextCreator.Update;
 
-namespace SqlQueryBuilderCommon.ResultTextCreator.Update
+namespace SqlQueryBuilderCommon.ResultTextCreator
 {
     public class UpsertResultTextCreator : IResultTextCreator
     {
