@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Data;
+using System.Linq;
 using SqlQueryBuilderCommon.Extentions;
 using SqlQueryBuilderCommon.StoredCreator.Update;
 
@@ -41,11 +42,11 @@ namespace SqlQueryBuilderTest.StoredCreator.Update
         {
             var dt = MockDataTable();
             var c = new UpdateParamCreatorCollection();
-            c.AddRow(dt.Rows.ToEnumerable());
+            dt.Rows.ToEnumerable().ToList().ForEach(r => c.AddRow(r));
             var answer = $@"車両名 = @車両名
 ,車両名 = @車両名
 ,車両名 = 'subaru'";
-            c.GetHeaderParamStr().Is(answer);
+            c.GetUpdateParamStr().Is(answer);
         }
     }
 }
