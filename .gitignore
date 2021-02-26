@@ -5,3 +5,6 @@ bin/
 obj/
 
 exe/
+
+SqlQueryBuilder.sln.DotSettings.user
+TestResults/
